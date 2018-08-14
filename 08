@@ -1,0 +1,6 @@
+ select strftime("%Y",filing_date)as year,strftime("%Y",date('now'))-strftime("%Y",dob) from cases,parties,charges where charges.disposition='Guilty' and  parties.type = 'Defendant' and cases.filing_date!='' and parties.dob!='' and parties.case_id=cases.case_id and charges.case_id=cases.case_id group by year limit 5;
+
+
+
+
+

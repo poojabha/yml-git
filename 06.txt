@@ -1,0 +1,5 @@
+select(SELECT COUNT(case_id) FROM cases WHERE status like'Case Closed Statistically')/((select count(case_id) from cases)/100.0);
+
+
+1.83013383128541
+

@@ -1,0 +1,5 @@
+select name,count(distinct violation_county) from charges,parties,cases where charges.case_id=cases.case_id and parties.case_id=cases.case_id and parties.type='Defendant' and name!='' group by name order by count(distinct violation_county)  desc limit 3;
+BUTLER, ROBERT LEE|5
+ROBINSON, TIARA MONET|5
+AGAMBAR, WILLIAM DOUGLAS|4
+

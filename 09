@@ -1,0 +1,9 @@
+select race,disposition,((SELECT COUNT(case_id) FROM cases,parties WHERE disposition='Guilty' |disposition='Not Guilty' and race='African American' or race='Caucasian' and cases.case_id=parties.case_id)/((select count(case_id) from cases where race in ('African American', 'Caucasian'))/100.0))from cases,parties where casses.cases_id=parties.case_id and race!='';
+
+
+
+select race,disposition,((SELECT COUNT(cases.case_id) FROM cases,parties WHERE disposition in('Guilty','Not Guilty') and race in('African American','Caucasian') and cases.case_id=parties.case_id)/((select count(cases.case_id) from cases)/100.0))from cases,parties group by race having race!='' limit 50;
+
+
+
+
